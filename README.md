@@ -1,4 +1,4 @@
-# Merchant Provider SRX — Next.js (static)
+# Merchant Provider SRX LLC — Next.js (static)
 
 Static export matching **`pencil-new-FDS.pen`** (desktop 1440 / mobile 390): typography, spacing, colors, sections, and imagery sourced from that design file.
 

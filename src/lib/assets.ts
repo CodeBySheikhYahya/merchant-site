@@ -25,13 +25,16 @@ export const IMG_ABOUT_GOAL =
 
 /** Legal page heroes — wide, dark-friendly Unsplash art (match site hero treatment) */
 export const IMG_LEGAL_PRIVACY =
-  "https://images.unsplash.com/photo-1633265486064-086b219453ec?auto=format&fit=max&w=2400&q=88";
+  "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=max&w=2400&q=88";
+
+export const IMG_LEGAL_PRIVACY_DESKTOP =
+  "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=max&w=2400&q=88";
 
 export const IMG_LEGAL_TERMS =
-  "https://images.unsplash.com/photo-1521791055367-461e286b7a87?auto=format&fit=max&w=2400&q=88";
+  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=max&w=2400&q=88";
 
 export const IMG_LEGAL_COMPLIANCE =
-  "https://images.unsplash.com/photo-1589829085413-e56a483f0936?auto=format&fit=max&w=2400&q=88";
+  "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=max&w=2400&q=88";
 
 export const IMG_LEGAL_HUB =
   "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=max&w=2400&q=88";

@@ -11,12 +11,16 @@ import {
   Shuffle,
 } from "lucide-react";
 import { GetStartedButton } from "@/components/GetStarted";
+import { Reveal } from "@/components/motion/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { TrustFaqChat } from "@/components/TrustFaqChat";
 import { IMG_ABOUT, IMG_HERO } from "@/lib/assets";
-
-const MAP_EMBED =
-  "https://www.google.com/maps?q=12849+Climbing+Ivy+Dr&output=embed";
+import {
+  COMPANY_ADDRESS_STREET,
+  COMPANY_LEGAL_NAME,
+  companyGoogleMapsEmbedUrl,
+} from "@/lib/company";
 
 export default function HomePage() {
   return (
@@ -48,15 +52,12 @@ export default function HomePage() {
               <GetStartedButton className="btn btn--primary btn--primaryLg">
                 Get Started
               </GetStartedButton>
-              <button type="button" className="btn btn--ghost btn--ghostLg">
-                Talk to Sales
-              </button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="svc" id="services" aria-labelledby="svc-heading">
+      <Reveal className="svc" id="services" aria-labelledby="svc-heading">
         <p className="eyebrow eyebrow--center">CAPABILITIES</p>
         <h2 id="svc-heading" className="visually-hidden">
           Capabilities
@@ -99,9 +100,9 @@ export default function HomePage() {
             </article>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="hiw" aria-labelledby="hiw-heading">
+      <Reveal className="hiw" aria-labelledby="hiw-heading">
         <p className="eyebrow" id="hiw-heading">
           HOW IT WORKS
         </p>
@@ -159,15 +160,15 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="abt" aria-labelledby="abt-heading">
+      <Reveal className="abt" aria-labelledby="abt-heading">
         <div className="abt__text">
           <h2 id="abt-heading" className="abt__h">
             Built for regulated volume
           </h2>
           <p className="abt__p">
-            Merchant Provider SRX LLC operates clearing and merchant services
+            {COMPANY_LEGAL_NAME} operates clearing and merchant services
             with the posture of a regulated financial institution —
             documentation, change control, and operational review are
             first-class.
@@ -186,9 +187,9 @@ export default function HomePage() {
             sizes="(max-width: 1023px) 0px, 340px"
           />
         </div>
-      </section>
+      </Reveal>
 
-      <section className="sec" id="compliance" aria-labelledby="sec-heading">
+      <Reveal className="sec" id="compliance" aria-labelledby="sec-heading">
         <p className="eyebrow" id="sec-heading">
           SECURITY &amp; COMPLIANCE
         </p>
@@ -224,27 +225,27 @@ export default function HomePage() {
             your customers operate.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="fcta" aria-labelledby="fcta-heading">
+      <Reveal className="fcta" aria-labelledby="fcta-heading">
         <h2 id="fcta-heading" className="fcta__h">
           Move money with institutional discipline.
         </h2>
         <GetStartedButton className="btn btn--primary btn--primaryLg">
           Get Started
         </GetStartedButton>
-      </section>
+      </Reveal>
 
-      <section className="map" id="location" aria-labelledby="map-heading">
+      <Reveal className="map" id="location" aria-labelledby="map-heading">
         <p className="eyebrow" id="map-heading">
           LOCATION
         </p>
-        <h2 className="map__title">Merchant Provider SRX LLC</h2>
-        <p className="map__addr">12849 Climbing Ivy Dr</p>
+        <h2 className="map__title">{COMPANY_LEGAL_NAME}</h2>
+        <p className="map__addr">{COMPANY_ADDRESS_STREET}</p>
         <div className="map__chrome">
           <iframe
-            title="Google Map — 12849 Climbing Ivy Dr"
-            src={MAP_EMBED}
+            title={`Google Map — ${COMPANY_ADDRESS_STREET}`}
+            src={companyGoogleMapsEmbedUrl()}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
@@ -256,9 +257,11 @@ export default function HomePage() {
           Replace this block with your production Google Maps iframe (Share →
           Embed) if you need a stable embed URL.
         </p>
-      </section>
+      </Reveal>
 
       <SiteFooter />
+
+      <TrustFaqChat />
     </div>
   );
 }

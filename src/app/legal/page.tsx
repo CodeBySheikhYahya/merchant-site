@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/LegalShell";
 import { IMG_LEGAL_HUB } from "@/lib/assets";
+import {
+  COMPANY_ADDRESS_STREET,
+  COMPANY_EMAIL,
+  COMPANY_LEGAL_NAME,
+  COMPANY_MAILTO,
+} from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Legal — Merchant Provider SRX LLC",
+  title: `Legal — ${COMPANY_LEGAL_NAME}`,
 };
 
 export default function LegalPage() {
@@ -16,21 +22,19 @@ export default function LegalPage() {
       heroAlt=""
     >
       <article className="doc">
-        <p className="meta">Merchant Provider SRX LLC · Policies and notices</p>
+        <p className="meta">{COMPANY_LEGAL_NAME} · Policies and notices</p>
         <p className="banner">
-          This page summarizes where to find our key legal documents. The documents
-          themselves control if there is any inconsistency with this summary.
+          This page summarizes where to find key legal documents for{" "}
+          <strong>{COMPANY_LEGAL_NAME}</strong>. The documents themselves control if
+          there is any inconsistency with this summary.
         </p>
         <h2>Entity</h2>
         <p>
-          <strong>Merchant Provider SRX LLC</strong>
+          <strong>{COMPANY_LEGAL_NAME}</strong>
           <br />
-          12849 Climbing Ivy Dr
+          {COMPANY_ADDRESS_STREET}
           <br />
-          Email:{" "}
-          <a href="mailto:raexyhacks68@gmail.com">
-            raexyhacks68@gmail.com
-          </a>
+          Email: <a href={COMPANY_MAILTO}>{COMPANY_EMAIL}</a>
         </p>
         <h2>Policies</h2>
         <div className="link-grid">
@@ -47,8 +51,8 @@ export default function LegalPage() {
         </p>
         <h2>Updates</h2>
         <p>
-          We may revise posted policies from time to time. Each document shows a
-          “Last updated” line when we make substantive edits.
+          {COMPANY_LEGAL_NAME} may revise posted policies from time to time. Each
+          document shows a “Last updated” line when we make substantive edits.
         </p>
       </article>
     </LegalShell>

@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { LogoSRX } from "@/components/LogoSRX";
-
-const CONTACT_EMAIL = "raexyhacks68@gmail.com";
+import {
+  COMPANY_ADDRESS_STREET,
+  COMPANY_EMAIL,
+  COMPANY_LEGAL_NAME,
+  COMPANY_MAILTO,
+} from "@/lib/company";
 
 export function SiteFooter() {
   return (
@@ -11,7 +15,11 @@ export function SiteFooter() {
         <div className="ftr__shell shell">
           <div className="ftr__grid">
             <div className="ftr__col ftr__col--brand">
-              <Link href="/" className="ftr__brandMark" aria-label="SRX home">
+              <Link
+                href="/"
+                className="ftr__brandMark"
+                aria-label={`${COMPANY_LEGAL_NAME} home`}
+              >
                 <LogoSRX className="ftr__logoSvg" />
               </Link>
               <p className="ftr__tag">
@@ -73,23 +81,23 @@ export function SiteFooter() {
 
             <div className="ftr__col ftr__col--hq">
               <span className="ftr__h">Headquarters</span>
-              <p className="ftr__hqName">Merchant Provider SRX LLC</p>
-              <p className="ftr__hqAddr">12849 Climbing Ivy Dr</p>
-              <a className="ftr__a ftr__a--email" href={`mailto:${CONTACT_EMAIL}`}>
-                {CONTACT_EMAIL}
+              <p className="ftr__hqName">{COMPANY_LEGAL_NAME}</p>
+              <p className="ftr__hqAddr">{COMPANY_ADDRESS_STREET}</p>
+              <a className="ftr__a ftr__a--email" href={COMPANY_MAILTO}>
+                {COMPANY_EMAIL}
               </a>
               <Link className="ftr__a ftr__allContacts" href="/contact">
                 All contacts
               </Link>
               <p className="ftr__copy ftr__copy--desktop">
-                © 2026 Merchant Provider SRX LLC. All rights reserved.
+                © 2026 {COMPANY_LEGAL_NAME}. All rights reserved.
               </p>
             </div>
           </div>
 
           <div className="ftr__mobileZone">
             <p className="ftr__copy ftr__copy--mobile">
-              © 2026 Merchant Provider SRX LLC. All rights reserved.
+              © 2026 {COMPANY_LEGAL_NAME}. All rights reserved.
             </p>
             <p className="ftr__mobileLegal">
               <Link href="/contact">Contact</Link>

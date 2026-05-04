@@ -1,5 +1,7 @@
+import { COMPANY_LEGAL_NAME } from "@/lib/company";
+
 /**
- * Vector wordmark “SRX” — Inter-style weight / letterspacing to match pencil-new-FDS.pen.
+ * Vector wordmark “SRX” — Barlow Condensed (loaded in layout) for a bold logistics-style mark.
  * Inherits color via currentColor (use on dark backgrounds).
  */
 export function LogoSRX({ className }: { className?: string }) {
@@ -7,21 +9,22 @@ export function LogoSRX({ className }: { className?: string }) {
     <svg
       className={className}
       role="img"
-      aria-label="SRX"
-      viewBox="0 0 120 26"
+      aria-label={COMPANY_LEGAL_NAME}
+      viewBox="0 0 128 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>SRX</title>
+      <title>{COMPANY_LEGAL_NAME}</title>
       <text
         x="0"
-        y="19.5"
+        y="25"
         fill="currentColor"
         style={{
-          fontFamily: "var(--font-inter), Inter, system-ui, sans-serif",
-          fontSize: "18px",
-          fontWeight: 600,
-          letterSpacing: "0.32em",
+          fontFamily:
+            'var(--font-logo-srx), "Barlow Condensed", ui-sans-serif, system-ui, sans-serif',
+          fontSize: "28px",
+          fontWeight: 700,
+          letterSpacing: "0.14em",
         }}
       >
         SRX

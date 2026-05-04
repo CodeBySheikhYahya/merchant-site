@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import {
   createContext,
   useCallback,
@@ -11,8 +12,10 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { COMPANY_EMAIL, COMPANY_LEGAL_NAME } from "@/lib/company";
 
-const INQUIRY_EMAIL = "raexyhacks68@gmail.com";
+const easeOutSoft = [0.22, 1, 0.36, 1] as const;
 
 const VOLUME_CHOICES = [
   { value: "Under $10,000", label: "Under $10,000 / month" },
@@ -39,6 +42,7 @@ export function GetStartedProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
+  const reduceMotion = usePrefersReducedMotion();
 
   const close = useCallback(() => setOpen(false), []);
   const openFn = useCallback(() => setOpen(true), []);
@@ -75,7 +79,9 @@ export function GetStartedProvider({ children }: { children: ReactNode }) {
     const monthlyVolume = String(fd.get("monthlyVolume") ?? "").trim();
     const message = String(fd.get("message") ?? "").trim();
 
-    const subject = encodeURIComponent("Get Started — Merchant inquiry");
+    const subject = encodeURIComponent(
+      `Get Started — ${COMPANY_LEGAL_NAME} inquiry`,
+    );
     const body = encodeURIComponent(
       [
         `Full name: ${fullName}`,
@@ -89,28 +95,51 @@ export function GetStartedProvider({ children }: { children: ReactNode }) {
       ].join("\n"),
     );
 
-    window.location.href = `mailto:${INQUIRY_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
     close();
   }
 
   return (
     <GetStartedContext.Provider value={{ open: openFn }}>
       {children}
-      {open ? (
-        <div className="gs-modal" role="presentation">
-          <button
-            type="button"
-            className="gs-modal__backdrop"
-            aria-label="Close dialog"
-            onClick={close}
-          />
-          <div
-            ref={dialogRef}
-            className="gs-modal__dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            key="gs-modal"
+            className="gs-modal"
+            role="presentation"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduceMotion ? undefined : { opacity: 0 }}
+            transition={{
+              duration: reduceMotion ? 0.01 : 0.22,
+              ease: easeOutSoft,
+            }}
           >
+            <button
+              type="button"
+              className="gs-modal__backdrop"
+              aria-label="Close dialog"
+              onClick={close}
+            />
+            <motion.div
+              ref={dialogRef}
+              className="gs-modal__dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              initial={
+                reduceMotion
+                  ? false
+                  : { opacity: 0, y: 14, scale: 0.985 }
+              }
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: reduceMotion ? 0.01 : 0.28,
+                ease: easeOutSoft,
+                delay: reduceMotion ? 0 : 0.04,
+              }}
+            >
             <div className="gs-modal__head">
               <div>
                 <h2 id={titleId} className="gs-modal__title">
@@ -131,7 +160,11 @@ export function GetStartedProvider({ children }: { children: ReactNode }) {
               </button>
             </div>
 
-            <form className="cform gs-modal__form" onSubmit={handleSubmit}>
+            <form
+              className="cform gs-modal__form"
+              data-lenis-prevent
+              onSubmit={handleSubmit}
+            >
               <div className="cform__row">
                 <div className="cform__field">
                   <label className="cform__label" htmlFor="gs-fullName">
@@ -235,9 +268,10 @@ export function GetStartedProvider({ children }: { children: ReactNode }) {
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-      ) : null}
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </GetStartedContext.Provider>
   );
 }
@@ -245,13 +279,22 @@ export function GetStartedProvider({ children }: { children: ReactNode }) {
 export function GetStartedButton({
   className = "",
   children,
+  onClick,
 }: {
   className?: string;
   children: ReactNode;
+  onClick?: () => void;
 }) {
   const { open } = useGetStarted();
   return (
-    <button type="button" className={className} onClick={open}>
+    <button
+      type="button"
+      className={className}
+      onClick={() => {
+        onClick?.();
+        open();
+      }}
+    >
       {children}
     </button>
   );

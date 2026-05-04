@@ -9,11 +9,11 @@ import {
   IMG_ABOUT_HOW,
   IMG_ABOUT_WHAT,
 } from "@/lib/assets";
+import { COMPANY_BRAND_NAME, COMPANY_LEGAL_NAME } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "About SRX Payments — Merchant Provider SRX LLC",
-  description:
-    "SRX Payments provides merchant services, payment processing infrastructure, and secure support for modern businesses.",
+  title: `About ${COMPANY_BRAND_NAME} — ${COMPANY_LEGAL_NAME}`,
+  description: `${COMPANY_BRAND_NAME} (${COMPANY_LEGAL_NAME}) provides merchant services, payment processing infrastructure, and secure support for modern businesses.`,
 };
 
 export default function AboutPage() {
@@ -40,7 +40,7 @@ export default function AboutPage() {
           <h1 id="about-hero-title" className="about-hero__title">
             About SRX Payments
           </h1>
-          <p className="about-hero__entity">Merchant Provider SRX LLC</p>
+          <p className="about-hero__entity">{COMPANY_LEGAL_NAME}</p>
         </div>
       </header>
 
@@ -63,8 +63,9 @@ export default function AboutPage() {
             </h2>
             <span className="about-intro__accent" aria-hidden />
             <p className="about-intro__lead">
-              SRX Payments is a merchant services provider focused on helping
-              businesses process online payments securely and efficiently.
+              {COMPANY_BRAND_NAME} ({COMPANY_LEGAL_NAME}) is a merchant services
+              provider focused on helping businesses process online payments securely
+              and efficiently.
             </p>
           </div>
         </section>

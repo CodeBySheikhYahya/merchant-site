@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/LegalShell";
-import { IMG_LEGAL_PRIVACY } from "@/lib/assets";
+import { IMG_LEGAL_PRIVACY, IMG_LEGAL_PRIVACY_DESKTOP } from "@/lib/assets";
+import {
+  COMPANY_ADDRESS_FULL,
+  COMPANY_EMAIL,
+  COMPANY_LEGAL_NAME,
+  COMPANY_MAILTO,
+} from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Merchant Provider SRX LLC",
+  title: `Privacy Policy — ${COMPANY_LEGAL_NAME}`,
 };
 
 export default function PrivacyPolicyPage() {
@@ -13,28 +19,28 @@ export default function PrivacyPolicyPage() {
       title="Privacy Policy"
       eyebrow="Privacy & data"
       heroImage={IMG_LEGAL_PRIVACY}
-      heroAlt=""
+      heroImageDesktop={IMG_LEGAL_PRIVACY_DESKTOP}
+      heroAlt="Customer completing a card payment with a phone and terminal"
+      heroAltDesktop="Customer paying at a counter with a card reader"
     >
       <article className="doc">
-        <p className="meta">Merchant Provider SRX LLC · Last updated: May 4, 2026</p>
+        <p className="meta">{COMPANY_LEGAL_NAME} · Last updated: May 4, 2026</p>
         <p className="banner">
           This policy is a starting template for your website. Have qualified legal
           counsel review and adapt it before you rely on it for compliance.
         </p>
         <h2>1. Who we are</h2>
         <p>
-          This website is operated by <strong>Merchant Provider SRX LLC</strong>{" "}
-          (“SRX,” “we,” “us,” or “our”). Contact:{" "}
-          <a href="mailto:raexyhacks68@gmail.com">
-            raexyhacks68@gmail.com
-          </a>
+          This website is operated by <strong>{COMPANY_LEGAL_NAME}</strong> (“SRX,”
+          “we,” “us,” or “our”). Contact:{" "}
+          <a href={COMPANY_MAILTO}>{COMPANY_EMAIL}</a>
           <br />
-          Business address: 12849 Climbing Ivy Dr.
+          Business address: {COMPANY_ADDRESS_FULL}.
         </p>
         <h2>2. Information we may collect</h2>
         <p>
-          Depending on how you interact with us, we may collect categories of
-          information such as:
+          Depending on how you interact with {COMPANY_LEGAL_NAME}, we may collect
+          categories of information such as:
         </p>
         <ul>
           <li>
@@ -53,9 +59,9 @@ export default function PrivacyPolicyPage() {
         </ul>
         <h2>3. How we use information</h2>
         <p>
-          We use information to operate this site, respond to requests, improve
-          security and performance, comply with law, and pursue legitimate business
-          purposes you would reasonably expect.
+          {COMPANY_LEGAL_NAME} uses information to operate this site, respond to
+          requests, improve security and performance, comply with law, and pursue
+          legitimate business purposes you would reasonably expect.
         </p>
         <h2>4. Cookies and similar technologies</h2>
         <p>
@@ -65,22 +71,22 @@ export default function PrivacyPolicyPage() {
         </p>
         <h2>5. Sharing</h2>
         <p>
-          We do not sell your personal information. We may share information with
-          service providers who assist us (for example, hosting, email, or
-          analytics), where required by law, or in connection with a business
-          transaction subject to appropriate safeguards.
+          {COMPANY_LEGAL_NAME} does not sell your personal information. We may share
+          information with service providers who assist us (for example, hosting,
+          email, or analytics), where required by law, or in connection with a
+          business transaction subject to appropriate safeguards.
         </p>
         <h2>6. Retention</h2>
         <p>
-          We retain information only as long as needed for the purposes described in
-          this policy, unless a longer retention period is required or permitted by
-          law.
+          {COMPANY_LEGAL_NAME} retains information only as long as needed for the
+          purposes described in this policy, unless a longer retention period is
+          required or permitted by law.
         </p>
         <h2>7. Security</h2>
         <p>
-          We implement reasonable administrative, technical, and organizational
-          measures designed to protect information. No method of transmission or
-          storage is completely secure.
+          {COMPANY_LEGAL_NAME} implements reasonable administrative, technical, and
+          organizational measures designed to protect information. No method of
+          transmission or storage is completely secure.
         </p>
         <h2>8. Your choices and rights</h2>
         <p>
@@ -91,8 +97,8 @@ export default function PrivacyPolicyPage() {
         </p>
         <h2>9. Children</h2>
         <p>
-          This site is not directed to children under 16, and we do not knowingly
-          collect personal information from children.
+          This site is not directed to children under 16, and {COMPANY_LEGAL_NAME}{" "}
+          does not knowingly collect personal information from children.
         </p>
         <h2>10. International transfers</h2>
         <p>
@@ -102,16 +108,13 @@ export default function PrivacyPolicyPage() {
         </p>
         <h2>11. Changes</h2>
         <p>
-          We may update this policy from time to time. The “Last updated” date will
-          change when we post revisions.
+          {COMPANY_LEGAL_NAME} may update this policy from time to time. The “Last
+          updated” date will change when we post revisions.
         </p>
         <h2>12. Contact</h2>
         <p>
           For privacy questions, contact{" "}
-          <a href="mailto:raexyhacks68@gmail.com">
-            raexyhacks68@gmail.com
-          </a>
-          .
+          <a href={COMPANY_MAILTO}>{COMPANY_EMAIL}</a>.
         </p>
         <p className="doc__related">
           <Link href="/legal">Legal overview</Link>

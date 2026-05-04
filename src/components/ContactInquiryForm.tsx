@@ -1,8 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-
-const INQUIRY_EMAIL = "raexyhacks68@gmail.com";
+import { COMPANY_EMAIL, COMPANY_LEGAL_NAME } from "@/lib/company";
 
 export function ContactInquiryForm() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -15,7 +14,7 @@ export function ContactInquiryForm() {
     const message = String(fd.get("message") ?? "").trim();
 
     const subject = encodeURIComponent(
-      "Business inquiry — Merchant Provider SRX LLC",
+      `Business inquiry — ${COMPANY_LEGAL_NAME}`,
     );
     const body = encodeURIComponent(
       [
@@ -28,7 +27,7 @@ export function ContactInquiryForm() {
       ].join("\n"),
     );
 
-    window.location.href = `mailto:${INQUIRY_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
   }
 
   return (
