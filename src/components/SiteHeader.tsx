@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GetStartedButton } from "@/components/GetStarted";
 import { LogoSRX } from "@/components/LogoSRX";
 
 type NavActive = "home" | "contact" | "about" | undefined;
@@ -38,9 +39,9 @@ export function SiteHeader({ active }: { active?: NavActive }) {
       </nav>
       <div className="nav__cta">
         <span className="nav__ctaText">Talk to Sales</span>
-        <Link href="/contact" className="btn btn--primary btn--sm">
+        <GetStartedButton className="btn btn--primary btn--sm">
           Get Started
-        </Link>
+        </GetStartedButton>
       </div>
       <div className="nav__mobile">
         <Link
@@ -67,9 +68,9 @@ export function SiteHeader({ active }: { active?: NavActive }) {
         >
           Contact
         </Link>
-        <Link href="/contact" className="btn btn--primary btn--sm">
-          Start
-        </Link>
+        <GetStartedButton className="btn btn--primary btn--sm">
+          Get Started
+        </GetStartedButton>
       </div>
     </header>
   );

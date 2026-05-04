@@ -1661,12 +1661,160 @@ a.nav__link {
   margin: -6px 0 0;
 }
 
+.cform__hintInline {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.cform__select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
 .cform__submit {
   align-self: flex-start;
   margin-top: 4px;
   padding: 12px 32px;
   border-radius: 999px;
   text-decoration: none;
+}
+
+/* ——— Get Started modal ——— */
+.gs-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+}
+
+.gs-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background: rgba(2, 2, 3, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gs-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: min(92vh, 880px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(165deg, #15151a 0%, #0c0e12 55%, #0a0a0d 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 32px 80px rgba(0, 0, 0, 0.65);
+}
+
+.gs-modal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 22px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.gs-modal__title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.gs-modal__lead {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: 42em;
+}
+
+.gs-modal__close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -6px -6px 0 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.gs-modal__close:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.gs-modal__form {
+  flex: 1;
+  min-height: 0;
+  padding: 18px 22px 22px;
+  overflow-y: auto;
+  gap: 16px;
+}
+
+.gs-modal__actions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 4px;
+}
+
+@media (min-width: 480px) {
+  .gs-modal__actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.gs-modal__submit {
+  width: 100%;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-weight: 600;
+}
+
+@media (min-width: 480px) {
+  .gs-modal__submit {
+    width: auto;
+    min-width: 180px;
+  }
 }
 
 /* ——— About page (marketing shell) ——— */

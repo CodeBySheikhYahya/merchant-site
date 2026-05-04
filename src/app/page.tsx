@@ -10,6 +10,7 @@ import {
   Shield,
   Shuffle,
 } from "lucide-react";
+import { GetStartedButton } from "@/components/GetStarted";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { IMG_ABOUT, IMG_HERO } from "@/lib/assets";
@@ -44,9 +45,9 @@ export default function HomePage() {
               portfolios.
             </p>
             <div className="hero__actions">
-              <button type="button" className="btn btn--primary btn--primaryLg">
+              <GetStartedButton className="btn btn--primary btn--primaryLg">
                 Get Started
-              </button>
+              </GetStartedButton>
               <button type="button" className="btn btn--ghost btn--ghostLg">
                 Talk to Sales
               </button>
@@ -229,9 +230,9 @@ export default function HomePage() {
         <h2 id="fcta-heading" className="fcta__h">
           Move money with institutional discipline.
         </h2>
-        <button type="button" className="btn btn--primary btn--primaryLg">
+        <GetStartedButton className="btn btn--primary btn--primaryLg">
           Get Started
-        </button>
+        </GetStartedButton>
       </section>
 
       <section className="map" id="location" aria-labelledby="map-heading">
