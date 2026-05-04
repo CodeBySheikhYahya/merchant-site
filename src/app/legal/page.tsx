@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/LegalShell";
+import { IMG_LEGAL_HUB } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Legal — Merchant Provider SRX LLC",
@@ -8,9 +9,13 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <LegalShell>
+    <LegalShell
+      title="Legal"
+      eyebrow="Policies & notices"
+      heroImage={IMG_LEGAL_HUB}
+      heroAlt=""
+    >
       <article className="doc">
-        <h1>Legal</h1>
         <p className="meta">Merchant Provider SRX LLC · Policies and notices</p>
         <p className="banner">
           This page summarizes where to find our key legal documents. The documents

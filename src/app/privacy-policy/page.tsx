@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/LegalShell";
+import { IMG_LEGAL_PRIVACY } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Merchant Provider SRX LLC",
@@ -8,9 +9,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalShell>
+    <LegalShell
+      title="Privacy Policy"
+      eyebrow="Privacy & data"
+      heroImage={IMG_LEGAL_PRIVACY}
+      heroAlt=""
+    >
       <article className="doc">
-        <h1>Privacy Policy</h1>
         <p className="meta">Merchant Provider SRX LLC · Last updated: May 4, 2026</p>
         <p className="banner">
           This policy is a starting template for your website. Have qualified legal
@@ -108,7 +113,7 @@ export default function PrivacyPolicyPage() {
           </a>
           .
         </p>
-        <p style={{ marginTop: 40 }}>
+        <p className="doc__related">
           <Link href="/legal">Legal overview</Link>
           {" · "}
           <Link href="/terms-of-service">Terms of Service</Link>

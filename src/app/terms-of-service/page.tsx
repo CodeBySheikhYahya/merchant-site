@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/LegalShell";
+import { IMG_LEGAL_TERMS } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Merchant Provider SRX LLC",
@@ -8,9 +9,13 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalShell>
+    <LegalShell
+      title="Terms of Service"
+      eyebrow="Terms of use"
+      heroImage={IMG_LEGAL_TERMS}
+      heroAlt=""
+    >
       <article className="doc">
-        <h1>Terms of Service</h1>
         <p className="meta">Merchant Provider SRX LLC · Last updated: May 4, 2026</p>
         <p className="banner">
           These terms are a drafting template. They are not legal advice. Have
@@ -93,7 +98,7 @@ export default function TermsPage() {
             raexyhacks68@gmail.com
           </a>
         </p>
-        <p style={{ marginTop: 40 }}>
+        <p className="doc__related">
           <Link href="/legal">Legal overview</Link>
           {" · "}
           <Link href="/privacy-policy">Privacy Policy</Link>

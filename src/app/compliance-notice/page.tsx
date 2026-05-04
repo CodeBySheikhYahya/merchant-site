@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/LegalShell";
+import { IMG_LEGAL_COMPLIANCE } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Compliance Notice — Merchant Provider SRX LLC",
@@ -8,9 +9,13 @@ export const metadata: Metadata = {
 
 export default function CompliancePage() {
   return (
-    <LegalShell>
+    <LegalShell
+      title="Compliance Notice"
+      eyebrow="Regulatory"
+      heroImage={IMG_LEGAL_COMPLIANCE}
+      heroAlt=""
+    >
       <article className="doc">
-        <h1>Compliance Notice</h1>
         <p className="meta">Merchant Provider SRX LLC · Last updated: May 4, 2026</p>
         <p className="banner">
           Customize this notice with your actual licenses, registrations, sponsor
@@ -58,7 +63,7 @@ export default function CompliancePage() {
           <br />
           Merchant Provider SRX LLC · 12849 Climbing Ivy Dr
         </p>
-        <p style={{ marginTop: 40 }}>
+        <p className="doc__related">
           <Link href="/legal">Legal overview</Link>
           {" · "}
           <Link href="/privacy-policy">Privacy Policy</Link>
